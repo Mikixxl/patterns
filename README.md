@@ -15,7 +15,7 @@ Operational pattern library for the IFB/SAD entity group. Mirror of the Google D
 
 ## Source of truth
 
-Google Drive is canonical. This repo is a snapshot mirror updated periodically. To edit a pattern, update the Drive doc first; the GitHub copy is regenerated from Drive.
+Google Drive is canonical. This repo is a snapshot mirror, refreshed daily by GitHub Actions. To edit a pattern, update the Drive doc - the next sync run pulls the change here automatically. Do not edit the `PATTERNS-*.md` files in this repo directly; auto-sync will overwrite them.
 
 | Local file | Drive doc ID |
 |------------|--------------|
@@ -26,6 +26,28 @@ Google Drive is canonical. This repo is a snapshot mirror updated periodically. 
 | PATTERNS-STRATEGIC.md | `11ddVlIuCi8YAslcoqK-2uy1j-MeQXisvO4xkeIN7auU` |
 | PATTERNS-INFRA.md | `1juBBHLyUZpuzG4ZcnWJxFzwDlWFP4gFwB1yCPzw_0Mk` |
 
+## Auto-sync
+
+The workflow at `.github/workflows/sync-patterns.yml` runs daily at 05:00 UTC and can also be triggered manually from the Actions tab. It calls `scripts/sync.py`, which:
+
+1. Authenticates to Drive via a service account JSON stored as a GitHub secret (`GOOGLE_SA_JSON`).
+2. Exports each canonical doc as `text/markdown` via the Drive API.
+3. Writes the result to the corresponding local file, prefixed with an "auto-synced - do not edit" header.
+4. Commits and pushes only if anything changed.
+
+The script touches only the six mapped files. `README.md` and anything else are left alone.
+
+### One-time setup
+
+Required once, then the workflow runs autonomously:
+
+1. **Create a service account.** In Google Cloud Console, pick or create any project. Enable the Google Drive API. Create a service account, then under "Keys" generate a new JSON key and download it.
+2. **Add the secret.** In this repo: Settings → Secrets and variables → Actions → New repository secret. Name: `GOOGLE_SA_JSON`. Value: the full contents of the JSON key file.
+3. **Share the six docs.** For each of the six Drive doc IDs in the table above, open the doc, click Share, paste the service account email (looks like `name@project-id.iam.gserviceaccount.com`), set role to Viewer, untick "Notify people", and Share.
+4. **Trigger a first run.** Actions tab → "Sync Patterns from Drive" → Run workflow. Confirm it commits the first auto-synced versions of the six files. After that, the daily cron handles the rest.
+
+If the service account key is ever rotated or revoked, regenerate it in Google Cloud and update the `GOOGLE_SA_JSON` secret. No other change needed.
+
 ## Naming convention
 
 Patterns are numbered monotonically across the entire library (1-35+). When a pattern moves between thematic files, the number stays the same and the index file routes lookups. New patterns get the next free number and are registered in the index.
@@ -34,5 +56,4 @@ Patterns are numbered monotonically across the entire library (1-35+). When a pa
 
 - 2 May 2026: original PATTERNS-LIBRARY split into the five thematic files plus index.
 - 13 May 2026: snapshot mirror established at github.com/Mikixxl/patterns.
-
-Last sync: 13 May 2026.
+- 13 May 2026: auto-sync via GitHub Actions cron live.
