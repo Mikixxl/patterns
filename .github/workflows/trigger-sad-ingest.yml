@@ -1,0 +1,45 @@
+name: Trigger sad-ingest once
+
+on:
+  push:
+    paths:
+      - '.github/workflows/trigger-sad-ingest.yml'
+      - 'scripts/trigger_sad_ingest.py'
+
+permissions:
+  contents: write
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install deps
+        run: pip install requests google-api-python-client google-auth
+
+      - name: Dispatch sad-ingest
+        env:
+          GOOGLE_SA_JSON: ${{ secrets.GOOGLE_SA_JSON }}
+        run: python scripts/trigger_sad_ingest.py
+
+      - name: Self-delete
+        if: always()
+        run: |
+          set -e
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.name  "github-actions[bot]"
+          [ -f .github/workflows/trigger-sad-ingest.yml ] && git rm .github/workflows/trigger-sad-ingest.yml || true
+          [ -f scripts/trigger_sad_ingest.py ] && git rm scripts/trigger_sad_ingest.py || true
+          if [ -n "$(git status --porcelain)" ]; then
+            git commit -m "chore: remove sad-ingest trigger after dispatch"
+            git push
+          fi
