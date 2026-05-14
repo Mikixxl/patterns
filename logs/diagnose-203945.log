@@ -1,0 +1,459 @@
+PAT: ghp_djW...2jfS
+
+8 recent runs found
+  - run 25884264496  event=push  status=in_progress  conclusion=None  created=2026-05-14T20:36:23Z
+  - run 25884115514  event=workflow_dispatch  status=completed  conclusion=cancelled  created=2026-05-14T20:33:25Z
+  - run 25884037051  event=push  status=completed  conclusion=failure  created=2026-05-14T20:31:51Z
+  - run 25883737952  event=workflow_dispatch  status=completed  conclusion=failure  created=2026-05-14T20:26:00Z
+  - run 25883508271  event=push  status=completed  conclusion=cancelled  created=2026-05-14T20:21:30Z
+  - run 25883275724  event=push  status=completed  conclusion=cancelled  created=2026-05-14T20:16:49Z
+  - run 25882839960  event=workflow_dispatch  status=completed  conclusion=cancelled  created=2026-05-14T20:08:05Z
+  - run 25882590243  event=workflow_dispatch  status=completed  conclusion=cancelled  created=2026-05-14T20:02:55Z
+
+=== Inspecting run 25884037051 (event=push, conclusion=failure) ===
+
+Job: ingest  conclusion=failure
+  -  1 Set up job                                         status=completed  conclusion=success
+  -  2 Checkout                                           status=completed  conclusion=success
+  -  3 Heartbeat - workflow started                       status=completed  conclusion=success
+  -  4 Set up Python                                      status=completed  conclusion=success
+  -  5 Install dependencies                               status=completed  conclusion=success
+  -  6 Run ingestion                                      status=completed  conclusion=success
+  -  7 Commit inbox, state, and run log                   status=completed  conclusion=failure
+  - 13 Post Set up Python                                 status=completed  conclusion=skipped
+  - 14 Post Checkout                                      status=completed  conclusion=success
+  - 15 Complete job                                       status=completed  conclusion=success
+
+=== Fetching logs for run 25884037051 ===
+Logs fetch: HTTP 200, 21986 bytes
+Logs saved to logs/sad-ingest-run-25884037051.zip
+
+Files in log zip:
+  - 0_ingest.txt
+  - ingest/system.txt
+  - ingest/1_Set up job.txt
+  - ingest/2_Checkout.txt
+  - ingest/3_Heartbeat - workflow started.txt
+  - ingest/4_Set up Python.txt
+  - ingest/5_Install dependencies.txt
+  - ingest/6_Run ingestion.txt
+  - ingest/7_Commit inbox, state, and run log.txt
+  - ingest/14_Post Checkout.txt
+  - ingest/15_Complete job.txt
+
+=== 0_ingest.txt ===
+﻿2026-05-14T20:32:23.0324332Z Current runner version: '2.334.0'
+2026-05-14T20:32:23.0361499Z ##[group]Runner Image Provisioner
+2026-05-14T20:32:23.0363002Z Hosted Compute Agent
+2026-05-14T20:32:23.0364371Z Version: 20260213.493
+2026-05-14T20:32:23.0365656Z Commit: 5c115507f6dd24b8de37d8bbe0bb4509d0cc0fa3
+2026-05-14T20:32:23.0367665Z Build Date: 2026-02-13T00:28:41Z
+2026-05-14T20:32:23.0369108Z Worker ID: ***d84014ac-220f-479a-9c65-110300bad78e***
+2026-05-14T20:32:23.0370753Z Azure Region: eastus
+2026-05-14T20:32:23.0371927Z ##[endgroup]
+2026-05-14T20:32:23.0374532Z ##[group]Operating System
+2026-05-14T20:32:23.0375962Z Ubuntu
+2026-05-14T20:32:23.0377444Z 24.04.4
+2026-05-14T20:32:23.0378752Z LTS
+2026-05-14T20:32:23.0379978Z ##[endgroup]
+2026-05-14T20:32:23.0381385Z ##[group]Runner Image
+2026-05-14T20:32:23.0382781Z Image: ubuntu-24.04
+2026-05-14T20:32:23.0384129Z Version: 20260513.135.3
+2026-05-14T20:32:23.0387061Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260513.135/images/ubuntu/Ubuntu2404-Readme.md
+2026-05-14T20:32:23.0390522Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260513.135
+2026-05-14T20:32:23.0392760Z ##[endgroup]
+2026-05-14T20:32:23.0395312Z ##[group]GITHUB_TOKEN Permissions
+2026-05-14T20:32:23.0398978Z Contents: write
+2026-05-14T20:32:23.0400197Z Metadata: read
+2026-05-14T20:32:23.0401501Z ##[endgroup]
+2026-05-14T20:32:23.0404600Z Secret source: Actions
+2026-05-14T20:32:23.0407150Z Prepare workflow directory
+2026-05-14T20:32:23.0971016Z Prepare all required actions
+2026-05-14T20:32:23.1056850Z Getting action download info
+2026-05-14T20:32:23.5850205Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+2026-05-14T20:32:23.7375616Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-05-14T20:32:23.9710285Z Complete job name: ingest
+2026-05-14T20:32:24.0458028Z ##[group]Run actions/checkout@v4
+2026-05-14T20:32:24.0459029Z with:
+2026-05-14T20:32:24.0459599Z   repository: Mikixxl/sad-ingest
+2026-05-14T20:32:24.0460443Z   token: ***
+2026-05-14T20:32:24.0460981Z   ssh-strict: true
+2026-05-14T20:32:24.0461533Z   ssh-user: git
+2026-05-14T20:32:24.0462089Z   persist-credentials: true
+2026-05-14T20:32:24.0462693Z   clean: true
+2026-05-14T20:32:24.0463236Z   sparse-checkout-cone-mode: true
+2026-05-14T20:32:24.0463854Z   fetch-depth: 1
+2026-05-14T20:32:24.0464385Z   fetch-tags: false
+2026-05-14T20:32:24.0464928Z   show-progress: true
+2026-05-14T20:32:24.0465471Z   lfs: false
+2026-05-14T20:32:24.0466181Z   submodules: false
+2026-05-14T20:32:24.0466750Z   set-safe-directory: true
+2026-05-14T20:32:24.0467597Z ##[endgroup]
+2026-05-14T20:32:24.1703965Z Syncing repository: Mikixxl/sad-ingest
+2026-05-14T20:32:24.1707340Z ##[group]Getting Git version info
+2026-05-14T20:32:24.1708329Z Working directory is '/home/runner/work/sad-ingest/sad-ingest'
+2026-05-14T20:32:24.1709953Z [command]/usr/bin/git version
+2026-05-14T20:32:24.1745554Z git version 2.54.0
+2026-05-14T20:32:24.1774210Z ##[endgroup]
+2026-05-14T20:32:24.1791139Z Temporarily overriding HOME='/home/runner/work/_temp/a861d7e6-2b16-49fc-874b-bcb88d0802a2' before making global git config changes
+2026-05-14T20:32:24.1795293Z Adding repository directory to the temporary git global config as a safe directory
+2026-05-14T20:32:24.1810713Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/sad-ingest/sad-ingest
+2026-05-14T20:32:24.2400569Z Deleting the contents of '/home/runner/work/sad-ingest/sad-ingest'
+2026-05-14T20:32:24.2403683Z ##[group]Initializing the repository
+2026-05-14T20:32:24.2409091Z [command]/usr/bin/git init /home/runner/work/sad-ingest/sad-ingest
+2026-05-14T20:32:24.2493415Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-05-14T20:32:24.2495535Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-05-14T20:32:24.2497114Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-05-14T20:32:24.2498658Z hint: call:
+2026-05-14T20:32:24.2499836Z hint:
+2026-05-14T20:32:24.2500930Z hint: 	git config --global init.defaultBranch <name>
+2026-05-14T20:32:24.2502250Z hint:
+2026-05-14T20:32:24.2503561Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-05-14T20:32:24.2505604Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-05-14T20:32:24.2507535Z hint:
+2026-05-14T20:32:24.2508543Z hint: 	git branch -m <name>
+2026-05-14T20:32:24.2509588Z hint:
+2026-05-14T20:32:24.2510887Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-05-14T20:32:24.2513177Z Initialized empty Git repository in /home/runner/work/sad-ingest/sad-ingest/.git/
+2026-05-14T20:32:24.2517334Z [command]/usr/bin/git remote add origin https://github.com/Mikixxl/sad-ingest
+2026-05-14T20:32:24.2557799Z ##[endgroup]
+2026-05-14T20:
+
+=== ingest/system.txt ===
+2026-05-14T20:32:20.2010000Z Requested labels: ubuntu-latest
+2026-05-14T20:32:20.2010000Z Job defined at: Mikixxl/sad-ingest/.github/workflows/sad-ingest.yml@refs/heads/main
+2026-05-14T20:32:20.2010000Z Waiting for a runner to pick up this job...
+2026-05-14T20:32:20.1970000Z Evaluating ingest.if
+2026-05-14T20:32:20.1970000Z Evaluating: success()
+2026-05-14T20:32:20.1970000Z Result: true
+2026-05-14T20:32:20.4720000Z Job is waiting for a hosted runner to come online.
+2026-05-14T20:32:20.4720000Z Job is about to start running on the hosted runner: GitHub Actions 1000000062
+
+=== ingest/1_Set up job.txt ===
+﻿2026-05-14T20:32:23.0323505Z Current runner version: '2.334.0'
+2026-05-14T20:32:23.0361472Z ##[group]Runner Image Provisioner
+2026-05-14T20:32:23.0362994Z Hosted Compute Agent
+2026-05-14T20:32:23.0364365Z Version: 20260213.493
+2026-05-14T20:32:23.0365648Z Commit: 5c115507f6dd24b8de37d8bbe0bb4509d0cc0fa3
+2026-05-14T20:32:23.0367651Z Build Date: 2026-02-13T00:28:41Z
+2026-05-14T20:32:23.0369102Z Worker ID: ***d84014ac-220f-479a-9c65-110300bad78e***
+2026-05-14T20:32:23.0370745Z Azure Region: eastus
+2026-05-14T20:32:23.0371920Z ##[endgroup]
+2026-05-14T20:32:23.0374463Z ##[group]Operating System
+2026-05-14T20:32:23.0375954Z Ubuntu
+2026-05-14T20:32:23.0377433Z 24.04.4
+2026-05-14T20:32:23.0378728Z LTS
+2026-05-14T20:32:23.0379958Z ##[endgroup]
+2026-05-14T20:32:23.0381362Z ##[group]Runner Image
+2026-05-14T20:32:23.0382765Z Image: ubuntu-24.04
+2026-05-14T20:32:23.0384115Z Version: 20260513.135.3
+2026-05-14T20:32:23.0386782Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260513.135/images/ubuntu/Ubuntu2404-Readme.md
+2026-05-14T20:32:23.0390424Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260513.135
+2026-05-14T20:32:23.0392735Z ##[endgroup]
+2026-05-14T20:32:23.0395286Z ##[group]GITHUB_TOKEN Permissions
+2026-05-14T20:32:23.0398955Z Contents: write
+2026-05-14T20:32:23.0400185Z Metadata: read
+2026-05-14T20:32:23.0401486Z ##[endgroup]
+2026-05-14T20:32:23.0404574Z Secret source: Actions
+2026-05-14T20:32:23.0407121Z Prepare workflow directory
+2026-05-14T20:32:23.0970987Z Prepare all required actions
+2026-05-14T20:32:23.1056819Z Getting action download info
+2026-05-14T20:32:23.5850168Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+2026-05-14T20:32:23.7375585Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-05-14T20:32:23.9710257Z Complete job name: ingest
+
+
+=== ingest/2_Checkout.txt ===
+﻿2026-05-14T20:32:24.0458000Z ##[group]Run actions/checkout@v4
+2026-05-14T20:32:24.0459020Z with:
+2026-05-14T20:32:24.0459595Z   repository: Mikixxl/sad-ingest
+2026-05-14T20:32:24.0460433Z   token: ***
+2026-05-14T20:32:24.0460977Z   ssh-strict: true
+2026-05-14T20:32:24.0461530Z   ssh-user: git
+2026-05-14T20:32:24.0462086Z   persist-credentials: true
+2026-05-14T20:32:24.0462690Z   clean: true
+2026-05-14T20:32:24.0463233Z   sparse-checkout-cone-mode: true
+2026-05-14T20:32:24.0463852Z   fetch-depth: 1
+2026-05-14T20:32:24.0464382Z   fetch-tags: false
+2026-05-14T20:32:24.0464926Z   show-progress: true
+2026-05-14T20:32:24.0465468Z   lfs: false
+2026-05-14T20:32:24.0466176Z   submodules: false
+2026-05-14T20:32:24.0466747Z   set-safe-directory: true
+2026-05-14T20:32:24.0467588Z ##[endgroup]
+2026-05-14T20:32:24.1703921Z Syncing repository: Mikixxl/sad-ingest
+2026-05-14T20:32:24.1707313Z ##[group]Getting Git version info
+2026-05-14T20:32:24.1708324Z Working directory is '/home/runner/work/sad-ingest/sad-ingest'
+2026-05-14T20:32:24.1709885Z [command]/usr/bin/git version
+2026-05-14T20:32:24.1745526Z git version 2.54.0
+2026-05-14T20:32:24.1774183Z ##[endgroup]
+2026-05-14T20:32:24.1791109Z Temporarily overriding HOME='/home/runner/work/_temp/a861d7e6-2b16-49fc-874b-bcb88d0802a2' before making global git config changes
+2026-05-14T20:32:24.1795270Z Adding repository directory to the temporary git global config as a safe directory
+2026-05-14T20:32:24.1810685Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/sad-ingest/sad-ingest
+2026-05-14T20:32:24.2400540Z Deleting the contents of '/home/runner/work/sad-ingest/sad-ingest'
+2026-05-14T20:32:24.2403658Z ##[group]Initializing the repository
+2026-05-14T20:32:24.2409063Z [command]/usr/bin/git init /home/runner/work/sad-ingest/sad-ingest
+2026-05-14T20:32:24.2493386Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-05-14T20:32:24.2495509Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-05-14T20:32:24.2497076Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-05-14T20:32:24.2498640Z hint: call:
+2026-05-14T20:32:24.2499827Z hint:
+2026-05-14T20:32:24.2500921Z hint: 	git config --global init.defaultBranch <name>
+2026-05-14T20:32:24.2502229Z hint:
+2026-05-14T20:32:24.2503541Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-05-14T20:32:24.2505582Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-05-14T20:32:24.2507509Z hint:
+2026-05-14T20:32:24.2508527Z hint: 	git branch -m <name>
+2026-05-14T20:32:24.2509580Z hint:
+2026-05-14T20:32:24.2510879Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-05-14T20:32:24.2513151Z Initialized empty Git repository in /home/runner/work/sad-ingest/sad-ingest/.git/
+2026-05-14T20:32:24.2517307Z [command]/usr/bin/git remote add origin https://github.com/Mikixxl/sad-ingest
+2026-05-14T20:32:24.2557775Z ##[endgroup]
+2026-05-14T20:32:24.2559617Z ##[group]Disabling automatic garbage collection
+2026-05-14T20:32:24.2562228Z [command]/usr/bin/git config --local gc.auto 0
+2026-05-14T20:32:24.2594625Z ##[endgroup]
+2026-05-14T20:32:24.2596934Z ##[group]Setting up auth
+2026-05-14T20:32:24.2602826Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-05-14T20:32:24.2638420Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-05-14T20:32:24.2957061Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-05-14T20:32:24.2989845Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-05-14T20:32:24.3220336Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-05-14T20:32:24.3252124Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-05-14T20:32:24.3493851Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-05-14T20:32:24.3529888Z ##[endgroup]
+2026-05-14T20:32:24.3531680Z ##[group]Fetching the repository
+2026-05-14T20:32:24.3539597Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +49ba844f0f81d55c61146c1c460bf12b17b7f58e:refs/remotes/origin/main
+2026-05-14T20:32:24.6483366Z From https://github.com/Mikixxl/sad-ingest
+2026-05-14T20:32:24.6486391Z  * [new ref]         49ba844f0f81d55c61146c1c460bf12b17b7f58e -> origin/main
+2026-05-14T20:32:24.6563787Z ##[endgroup]
+2026-05-14T20:32:24.6565891Z ##[group]Determining the checkout info
+202
+
+=== ingest/3_Heartbeat - workflow started.txt ===
+﻿2026-05-14T20:32:24.7066294Z ##[group]Run set -e
+2026-05-14T20:32:24.7067684Z [36;1mset -e[0m
+2026-05-14T20:32:24.7068714Z [36;1mmkdir -p runs[0m
+2026-05-14T20:32:24.7069576Z [36;1mTS=$(date -u +%Y-%m-%d-%H%M%S)[0m
+2026-05-14T20:32:24.7070535Z [36;1m# Document presence of secrets WITHOUT printing values[0m
+2026-05-14T20:32:24.7071584Z [36;1mANTH_LEN=$***#ANTHROPIC_API_KEY***[0m
+2026-05-14T20:32:24.7072432Z [36;1mGSA_LEN=$***#GOOGLE_SA_JSON***[0m
+2026-05-14T20:32:24.7073238Z [36;1mcat > runs/heartbeat-$TS.txt <<EOF[0m
+2026-05-14T20:32:24.7074200Z [36;1mWorkflow run started at: $(date -u --iso-8601=seconds)[0m
+2026-05-14T20:32:24.7075510Z [36;1mGITHUB_RUN_ID: $***GITHUB_RUN_ID***[0m
+2026-05-14T20:32:24.7076701Z [36;1mGITHUB_RUN_NUMBER: $***GITHUB_RUN_NUMBER***[0m
+2026-05-14T20:32:24.7077654Z [36;1mGITHUB_EVENT_NAME: $***GITHUB_EVENT_NAME***[0m
+2026-05-14T20:32:24.7078593Z [36;1mANTHROPIC_API_KEY length: $***ANTH_LEN***[0m
+2026-05-14T20:32:24.7079481Z [36;1mGOOGLE_SA_JSON length: $***GSA_LEN***[0m
+2026-05-14T20:32:24.7080327Z [36;1mEOF[0m
+2026-05-14T20:32:24.7081269Z [36;1mgit config user.email "41898282+github-actions[bot]@users.noreply.github.com"[0m
+2026-05-14T20:32:24.7082519Z [36;1mgit config user.name  "github-actions[bot]"[0m
+2026-05-14T20:32:24.7083381Z [36;1mgit add runs/heartbeat-$TS.txt[0m
+2026-05-14T20:32:24.7084363Z [36;1mgit commit -m "heartbeat: workflow run $GITHUB_RUN_ID started"[0m
+2026-05-14T20:32:24.7085335Z [36;1mgit push[0m
+2026-05-14T20:32:24.7123770Z shell: /usr/bin/bash -e ***0***
+2026-05-14T20:32:24.7124546Z env:
+2026-05-14T20:32:24.7126328Z   ANTHROPIC_API_KEY: ***
+2026-05-14T20:32:24.7151695Z   GOOGLE_SA_JSON: ***
+2026-05-14T20:32:24.7152830Z ##[endgroup]
+2026-05-14T20:32:24.7387561Z [main d989c3f] heartbeat: workflow run 25884037051 started
+2026-05-14T20:32:24.7390162Z  1 file changed, 6 insertions(+)
+2026-05-14T20:32:24.7393942Z  create mode 100644 runs/heartbeat-2026-05-14-203224.txt
+2026-05-14T20:32:25.5581062Z To https://github.com/Mikixxl/sad-ingest
+2026-05-14T20:32:25.5584933Z    49ba844..d989c3f  main -> main
+
+
+=== ingest/4_Set up Python.txt ===
+﻿2026-05-14T20:32:25.5910922Z ##[group]Run actions/setup-python@v5
+2026-05-14T20:32:25.5912406Z with:
+2026-05-14T20:32:25.5913493Z   python-version: 3.12
+2026-05-14T20:32:25.5914705Z   cache: pip
+2026-05-14T20:32:25.5916186Z   cache-dependency-path: scripts/requirements.txt
+2026-05-14T20:32:25.5917859Z   check-latest: false
+2026-05-14T20:32:25.5919342Z   token: ***
+2026-05-14T20:32:25.5920488Z   update-environment: true
+2026-05-14T20:32:25.5921832Z   allow-prereleases: false
+2026-05-14T20:32:25.5923130Z   freethreaded: false
+2026-05-14T20:32:25.5924353Z ##[endgroup]
+2026-05-14T20:32:25.7900295Z ##[group]Installed versions
+2026-05-14T20:32:25.8376743Z Successfully set up CPython (3.12.13)
+2026-05-14T20:32:25.8387194Z ##[endgroup]
+2026-05-14T20:32:25.8956716Z [command]/opt/hostedtoolcache/Python/3.12.13/x64/bin/pip cache dir
+2026-05-14T20:32:27.5991053Z /home/runner/.cache/pip
+2026-05-14T20:32:27.7419520Z pip cache is not found
+
+
+=== ingest/5_Install dependencies.txt ===
+﻿2026-05-14T20:32:27.7524766Z ##[group]Run pip install -r scripts/requirements.txt
+2026-05-14T20:32:27.7525265Z [36;1mpip install -r scripts/requirements.txt[0m
+2026-05-14T20:32:27.7563643Z shell: /usr/bin/bash -e ***0***
+2026-05-14T20:32:27.7563981Z env:
+2026-05-14T20:32:27.7564316Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.13/x64
+2026-05-14T20:32:27.7564849Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.13/x64/lib/pkgconfig
+2026-05-14T20:32:27.7565363Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+2026-05-14T20:32:27.7565822Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+2026-05-14T20:32:27.7566572Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+2026-05-14T20:32:27.7567033Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.13/x64/lib
+2026-05-14T20:32:27.7567423Z ##[endgroup]
+2026-05-14T20:32:29.2617465Z Collecting anthropic>=0.40 (from -r scripts/requirements.txt (line 1))
+2026-05-14T20:32:29.3150688Z   Downloading anthropic-0.102.0-py3-none-any.whl.metadata (3.2 kB)
+2026-05-14T20:32:29.3315226Z Collecting feedparser>=6.0 (from -r scripts/requirements.txt (line 2))
+2026-05-14T20:32:29.3349795Z   Downloading feedparser-6.0.12-py3-none-any.whl.metadata (2.7 kB)
+2026-05-14T20:32:29.3732709Z Collecting google-api-python-client>=2.120 (from -r scripts/requirements.txt (line 3))
+2026-05-14T20:32:29.3776832Z   Downloading google_api_python_client-2.196.0-py3-none-any.whl.metadata (7.0 kB)
+2026-05-14T20:32:29.4050214Z Collecting google-auth>=2.30 (from -r scripts/requirements.txt (line 4))
+2026-05-14T20:32:29.4084181Z   Downloading google_auth-2.52.0-py3-none-any.whl.metadata (5.5 kB)
+2026-05-14T20:32:29.4294624Z Collecting anyio<5,>=3.5.0 (from anthropic>=0.40->-r scripts/requirements.txt (line 1))
+2026-05-14T20:32:29.4330665Z   Downloading anyio-4.13.0-py3-none-any.whl.metadata (4.5 kB)
+2026-05-14T20:32:29.4540378Z Collecting distro<2,>=1.7.0 (from anthropic>=0.40->-r scripts/requirements.txt (line 1))
+2026-05-14T20:32:29.4582355Z   Downloading distro-1.9.0-py3-none-any.whl.metadata (6.8 kB)
+2026-05-14T20:32:29.4707829Z Collecting docstring-parser<1,>=0.15 (from anthropic>=0.40->-r scripts/requirements.txt (line 1))
+2026-05-14T20:32:29.4744085Z   Downloading docstring_parser-0.18.0-py3-none-any.whl.metadata (3.5 kB)
+2026-05-14T20:32:29.4909268Z Collecting httpx<1,>=0.25.0 (from anthropic>=0.40->-r scripts/requirements.txt (line 1))
+2026-05-14T20:32:29.4949220Z   Downloading httpx-0.28.1-py3-none-any.whl.metadata (7.1 kB)
+2026-05-14T20:32:29.5691255Z Collecting jiter<1,>=0.4.0 (from anthropic>=0.40->-r scripts/requirements.txt (line 1))
+2026-05-14T20:32:29.5730542Z   Downloading jiter-0.14.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (5.2 kB)
+2026-05-14T20:32:29.6759707Z Collecting pydantic<3,>=1.9.0 (from anthropic>=0.40->-r scripts/requirements.txt (line 1))
+2026-05-14T20:32:29.6798417Z   Downloading pydantic-2.13.4-py3-none-any.whl.metadata (109 kB)
+2026-05-14T20:32:29.7003646Z Collecting sniffio (from anthropic>=0.40->-r scripts/requirements.txt (line 1))
+2026-05-14T20:32:29.7056953Z   Downloading sniffio-1.3.1-py3-none-any.whl.metadata (3.9 kB)
+2026-05-14T20:32:29.7217449Z Collecting typing-extensions<5,>=4.14 (from anthropic>=0.40->-r scripts/requirements.txt (line 1))
+2026-05-14T20:32:29.7255669Z   Downloading typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)
+2026-05-14T20:32:29.7431625Z Collecting idna>=2.8 (from anyio<5,>=3.5.0->anthropic>=0.40->-r scripts/requirements.txt (line 1))
+2026-05-14T20:32:29.7467648Z   Downloading idna-3.15-py3-none-any.whl.metadata (7.7 kB)
+2026-05-14T20:32:29.7675427Z Collecting certifi (from httpx<1,>=0.25.0->anthropic>=0.40->-r scripts/requirements.txt (line 1))
+2026-05-14T20:32:29.7713873Z   Downloading certifi-2026.4.22-py3-none-any.whl.metadata (2.5 kB)
+2026-05-14T20:32:29.7879162Z Collecting httpcore==1.* (from httpx<1,>=0.25.0->anthropic>=0.40->-r scripts/requirements.txt (line 1))
+2026-05-14T20:32:29.7915511Z   Downloading httpcore-1.0.9-py3-none-any.whl.metadata (21 kB)
+2026-05-14T20:32:29.8064463Z Collecting h11>=0.16 (from httpcore==1.*->httpx<1,>=0.25.0->anthropic>=0.40->-r scripts/requirements.txt (line 1))
+2026-05-14T20:32:29.8104706Z   Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+2026-05-14T20:32:29.8238544Z Collecting annotated-types>=0.6.0 (from pydantic<3,>=1.9.0->anthropic>=0.40->-r scripts/requirements.txt (line 1))
+2026-05-14T20:32:29.8274777Z   Downloading annotated_types-0.7.0-py3-none-any.whl.metadata (15 kB)
+2026-05-14T20:32:30.4518571Z Collecting pydantic-core==2.46.4 (from pydantic<3,>=1.9.0->anthropic>=0.40->-r scripts/requirements.txt (line 1))
+2026-05-14T20:32:30.4575090Z   Downloading pydantic_core-2.46.4-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.6 kB)
+2026-05-14T20:32:30.4689104Z Collecting typing-inspection>=0.4.2 (from pydantic<3,>=1.9.0->anthropic>=0.40->-r scripts/requirements.txt (line 1))
+2026-05-14T20:
+
+=== ingest/6_Run ingestion.txt ===
+﻿2026-05-14T20:32:37.0815278Z ##[group]Run python scripts/ingest.py 2>&1 | tee runs/last-ingest-output.log
+2026-05-14T20:32:37.0815935Z [36;1mpython scripts/ingest.py 2>&1 | tee runs/last-ingest-output.log[0m
+2026-05-14T20:32:37.0850972Z shell: /usr/bin/bash -e ***0***
+2026-05-14T20:32:37.0851295Z env:
+2026-05-14T20:32:37.0851616Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.13/x64
+2026-05-14T20:32:37.0852110Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.13/x64/lib/pkgconfig
+2026-05-14T20:32:37.0852589Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+2026-05-14T20:32:37.0853019Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+2026-05-14T20:32:37.0874169Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+2026-05-14T20:32:37.0874985Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.13/x64/lib
+2026-05-14T20:32:37.0876738Z   ANTHROPIC_API_KEY: ***
+2026-05-14T20:32:37.0877221Z ##[endgroup]
+2026-05-14T20:38:31.4948652Z 
+2026-05-14T20:38:31.4949550Z === Reuters World ===
+2026-05-14T20:38:31.4950569Z WARN no entries from Reuters World
+2026-05-14T20:38:31.4951114Z 
+2026-05-14T20:38:31.4951446Z === Reuters China ===
+2026-05-14T20:38:31.4952092Z WARN no entries from Reuters China
+2026-05-14T20:38:31.4952589Z 
+2026-05-14T20:38:31.4952892Z === Al Jazeera ===
+2026-05-14T20:38:31.4953832Z OK   filed: inbox/INGEST-2026-05-14-Al_Jazeera-Iran_Taiwan_and_trade_Trumps_highstakes_return_to_Beijing.md
+2026-05-14T20:38:31.4955302Z OK   filed: inbox/INGEST-2026-05-14-Al_Jazeera-What_does_the_US_hope_to_achieve_from_Lebanon-Israel_talks.md
+2026-05-14T20:38:31.4956938Z OK   filed: inbox/INGEST-2026-05-14-Al_Jazeera-Iran_expands_tiered_internet_access_amid_continued_online_bl.md
+2026-05-14T20:38:31.4957812Z 
+2026-05-14T20:38:31.4958134Z === Stimson Center ===
+2026-05-14T20:38:31.4958997Z OK   filed: inbox/INGEST-2026-05-14-Stimson_Center-North_Africa_Regional_Outlook_May_13_2026.md
+2026-05-14T20:38:31.4960323Z OK   filed: inbox/INGEST-2026-05-14-Stimson_Center-Iran_Conflict_Hits_Foundations_of_Gulf_Economies.md
+2026-05-14T20:38:31.4961738Z OK   filed: inbox/INGEST-2026-05-14-Stimson_Center-Can_Services_Replace_Manufacturing_in_Developing_Economies.md
+2026-05-14T20:38:31.4962645Z 
+2026-05-14T20:38:31.4965256Z === CSIS Analysis ===
+2026-05-14T20:38:31.4974594Z WARN no entries from CSIS Analysis
+2026-05-14T20:38:31.4975145Z 
+2026-05-14T20:38:31.4975488Z === South China Morning Post ===
+2026-05-14T20:38:31.4976844Z OK   filed: inbox/INGEST-2026-05-14-South_China_Morning_Post-Xi-Trump_summit_day_1_everything_you_need_to_know_from_the_m.md
+2026-05-14T20:38:31.4978447Z OK   filed: inbox/INGEST-2026-05-14-South_China_Morning_Post-US_moves_to_end_fraud_cases_against_Asias_richest_person_Gau.md
+2026-05-14T20:38:31.4979995Z OK   filed: inbox/INGEST-2026-05-14-South_China_Morning_Post-Trump_says_Xi_offered_help_on_Iran_as_China_seeks_to_keep_Ho.md
+2026-05-14T20:38:31.4980938Z 
+2026-05-14T20:38:31.4981260Z === Foreign Policy ===
+2026-05-14T20:38:31.4982124Z OK   filed: inbox/INGEST-2026-05-14-Foreign_Policy-Israels_Lebanon_Strategy_Is_Self-Defeating.md
+2026-05-14T20:38:31.4983344Z OK   filed: inbox/INGEST-2026-05-14-Foreign_Policy-Both_Trump_and_Xi_Overestimate_Themselves.md
+2026-05-14T20:38:31.4984590Z OK   filed: inbox/INGEST-2026-05-14-Foreign_Policy-Trump_Has_One_Major_Focus_While_in_China_Trade.md
+2026-05-14T20:38:31.4985402Z 
+2026-05-14T20:38:31.4985700Z === Summary ===
+2026-05-14T20:38:31.4986423Z Files created:           12
+2026-05-14T20:38:31.4987029Z Items processed (API):   21
+2026-05-14T20:38:31.4987680Z Skipped (already seen):  0
+2026-05-14T20:38:31.4988264Z Skipped (not relevant):  9
+2026-05-14T20:38:31.4988829Z Errors:                  0
+2026-05-14T20:38:31.4989409Z Inbox path:              inbox/
+
+
+=== ingest/7_Commit inbox, state, and run log.txt ===
+﻿2026-05-14T20:38:31.5766986Z ##[group]Run set -euo pipefail
+2026-05-14T20:38:31.5767404Z [36;1mset -euo pipefail[0m
+2026-05-14T20:38:31.5767711Z [36;1mgit pull --rebase || true[0m
+2026-05-14T20:38:31.5768089Z [36;1mgit add inbox/ state/ runs/ 2>/dev/null || true[0m
+2026-05-14T20:38:31.5768502Z [36;1mif [ -z "$(git status --porcelain)" ]; then[0m
+2026-05-14T20:38:31.5768887Z [36;1m  echo "No changes to commit."[0m
+2026-05-14T20:38:31.5769193Z [36;1m  exit 0[0m
+2026-05-14T20:38:31.5769429Z [36;1mfi[0m
+2026-05-14T20:38:31.5769834Z [36;1mgit config user.email "41898282+github-actions[bot]@users.noreply.github.com"[0m
+2026-05-14T20:38:31.5770368Z [36;1mgit config user.name  "github-actions[bot]"[0m
+2026-05-14T20:38:31.5770927Z [36;1mnew_inbox=$(git diff --cached --name-only --diff-filter=A inbox/ 2>/dev/null | wc -l | tr -d ' ')[0m
+2026-05-14T20:38:31.5771459Z [36;1mrun_date=$(date -u +%Y-%m-%d)[0m
+2026-05-14T20:38:31.5771925Z [36;1mgit commit -m "ingest($run_date): $new_inbox new inbox file(s), run $GITHUB_RUN_ID"[0m
+2026-05-14T20:38:31.5772413Z [36;1mgit push[0m
+2026-05-14T20:38:31.5807491Z shell: /usr/bin/bash -e ***0***
+2026-05-14T20:38:31.5807812Z env:
+2026-05-14T20:38:31.5808127Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.13/x64
+2026-05-14T20:38:31.5808618Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.13/x64/lib/pkgconfig
+2026-05-14T20:38:31.5809093Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+2026-05-14T20:38:31.5809540Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+2026-05-14T20:38:31.5809983Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+2026-05-14T20:38:31.5810425Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.13/x64/lib
+2026-05-14T20:38:31.5810788Z ##[endgroup]
+2026-05-14T20:38:31.5891240Z error: cannot pull with rebase: You have unstaged changes.
+2026-05-14T20:38:31.5893506Z error: Please commit or stash them.
+2026-05-14T20:38:31.6255912Z [main e2a9a27] ingest(2026-05-14): 12 new inbox file(s), run 25884037051
+2026-05-14T20:38:31.6257277Z  14 files changed, 516 insertions(+), 1 deletion(-)
+2026-05-14T20:38:31.6258809Z  create mode 100644 inbox/INGEST-2026-05-14-Al_Jazeera-Iran_Taiwan_and_trade_Trumps_highstakes_return_to_Beijing.md
+2026-05-14T20:38:31.6260967Z  create mode 100644 inbox/INGEST-2026-05-14-Al_Jazeera-Iran_expands_tiered_internet_access_amid_continued_online_bl.md
+2026-05-14T20:38:31.6262694Z  create mode 100644 inbox/INGEST-2026-05-14-Al_Jazeera-What_does_the_US_hope_to_achieve_from_Lebanon-Israel_talks.md
+2026-05-14T20:38:31.6264792Z  create mode 100644 inbox/INGEST-2026-05-14-Foreign_Policy-Both_Trump_and_Xi_Overestimate_Themselves.md
+2026-05-14T20:38:31.6266655Z  create mode 100644 inbox/INGEST-2026-05-14-Foreign_Policy-Israels_Lebanon_Strategy_Is_Self-Defeating.md
+2026-05-14T20:38:31.6268342Z  create mode 100644 inbox/INGEST-2026-05-14-Foreign_Policy-Trump_Has_One_Major_Focus_While_in_China_Trade.md
+2026-05-14T20:38:31.6270167Z  create mode 100644 inbox/INGEST-2026-05-14-South_China_Morning_Post-Trump_says_Xi_offered_help_on_Iran_as_China_seeks_to_keep_Ho.md
+2026-05-14T20:38:31.6272132Z  create mode 100644 inbox/INGEST-2026-05-14-South_China_Morning_Post-US_moves_to_end_fraud_cases_against_Asias_richest_person_Gau.md
+2026-05-14T20:38:31.6274044Z  create mode 100644 inbox/INGEST-2026-05-14-South_China_Morning_Post-Xi-Trump_summit_day_1_everything_you_need_to_know_from_the_m.md
+2026-05-14T20:38:31.6275924Z  create mode 100644 inbox/INGEST-2026-05-14-Stimson_Center-Can_Services_Replace_Manufacturing_in_Developing_Economies.md
+2026-05-14T20:38:31.6278294Z  create mode 100644 inbox/INGEST-2026-05-14-Stimson_Center-Iran_Conflict_Hits_Foundations_of_Gulf_Economies.md
+2026-05-14T20:38:31.6280078Z  create mode 100644 inbox/INGEST-2026-05-14-Stimson_Center-North_Africa_Regional_Outlook_May_13_2026.md
+2026-05-14T20:38:31.6281349Z  create mode 100644 runs/last-ingest-output.log
+2026-05-14T20:38:31.9905457Z To https://github.com/Mikixxl/sad-ingest
+2026-05-14T20:38:31.9907170Z  ! [rejected]        main -> main (fetch first)
+2026-05-14T20:38:31.9908675Z error: failed to push some refs to 'https://github.com/Mikixxl/sad-ingest'
+2026-05-14T20:38:31.9921614Z hint: Updates were rejected because the remote contains work that you do not
+2026-05-14T20:38:31.9922787Z hint: have locally. This is usually caused by another repository pushing to
+2026-05-14T20:38:31.9924109Z hint: the same ref. If you want to integrate the remote changes, use
+2026-05-14T20:38:31.9925048Z hint: 'git pull' before pushing again.
+2026-05-14T20:38:31.9925944Z hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+2026-05-14T20:38:31.9942544Z ##[error]Process completed with exit code 1.
+
+
+=== ingest/14_Post Checkout.txt ===
+﻿2026-05-14T20:38:32.0059472Z Post job cleanup.
+2026-05-14T20:38:32.3599857Z [command]/usr/bin/git version
+2026-05-14T20:38:32.3612019Z git version 2.54.0
+2026-05-14T20:38:32.3702609Z Temporarily overriding HOME='/home/runner/work/_temp/bff33156-e8a1-4979-91d7-8bed68baea2c' before making global git config changes
+2026-05-14T20:38:32.3733147Z Adding repository directory to the temporary git global config as a safe directory
+2026-05-14T20:38:32.3734768Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/sad-ingest/sad-ingest
+2026-05-14T20:38:32.3736973Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-05-14T20:38:32.3738782Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-05-14T20:38:32.3740789Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-05-14T20:38:32.3741684Z http.https://github.com/.extraheader
+2026-05-14T20:38:32.3743255Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-05-14T20:38:32.3745675Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-05-14T20:38:32.3748808Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-05-14T20:38:32.3750659Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+
+
+=== ingest/15_Complete job.txt ===
+﻿2026-05-14T20:38:32.3831840Z Cleaning up orphan processes
+2026-05-14T20:38:32.4113645Z ##[warning]Node.js 20 actions are deprecated. The following actions are running on Node.js 20 and may not work as expected: actions/checkout@v4, actions/setup-python@v5. Actions will be forced to run with Node.js 24 by default starting June 2nd, 2026. Node.js 20 will be removed from the runner on September 16th, 2026. Please check if updated versions of these actions are available that support Node.js 24. To opt into Node.js 24 now, set the FORCE_JAVASCRIPT_ACTIONS_TO_NODE24=true environment variable on the runner or in your workflow file. Once Node.js 24 becomes the default, you can temporarily opt out by setting ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+
