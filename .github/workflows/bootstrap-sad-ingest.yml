@@ -1,0 +1,54 @@
+name: Bootstrap sad-ingest secrets (v5)
+
+on:
+  push:
+    paths:
+      - '.github/workflows/bootstrap-sad-ingest.yml'
+      - 'scripts/bootstrap_sad_ingest.py'
+
+permissions:
+  contents: write
+
+jobs:
+  bootstrap:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          # full fetch so the script can git push log entries
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Python dependencies
+        run: pip install pynacl requests google-api-python-client google-auth
+
+      - name: Run bootstrap (probe Drive, extract creds, set secrets, verify, trigger)
+        env:
+          GOOGLE_SA_JSON: ${{ secrets.GOOGLE_SA_JSON }}
+        run: python scripts/bootstrap_sad_ingest.py
+
+      - name: Self-delete bootstrap workflow and script
+        if: always()
+        run: |
+          set -e
+          # Pull any commits the script may have made (log files) so we have clean working tree
+          git pull --rebase || true
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.name  "github-actions[bot]"
+          # rm only if files still exist
+          [ -f .github/workflows/bootstrap-sad-ingest.yml ] && git rm .github/workflows/bootstrap-sad-ingest.yml || true
+          [ -f scripts/bootstrap_sad_ingest.py ] && git rm scripts/bootstrap_sad_ingest.py || true
+          if [ -n "$(git status --porcelain)" ]; then
+            git commit -m "chore: remove bootstrap workflow (v5 run finished)"
+            git push
+          else
+            echo "Already self-deleted"
+          fi
