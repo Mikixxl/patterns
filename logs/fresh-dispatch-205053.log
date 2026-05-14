@@ -1,0 +1,147 @@
+sad-ingest main is at: 7672a78ebe
+
+Dispatching sad-ingest.yml on ref=main...
+Dispatch: HTTP 204
+
+Waiting for new run to appear and complete...
+  Found run 25884982163: status=queued, conclusion=None
+  Found run 25884982163: status=in_progress, conclusion=None
+  Found run 25884982163: status=in_progress, conclusion=None
+  Found run 25884982163: status=in_progress, conclusion=None
+  Found run 25884982163: status=in_progress, conclusion=None
+  Found run 25884982163: status=in_progress, conclusion=None
+  Found run 25884982163: status=in_progress, conclusion=None
+  Found run 25884982163: status=in_progress, conclusion=None
+  Found run 25884982163: status=in_progress, conclusion=None
+  Found run 25884982163: status=in_progress, conclusion=None
+  Found run 25884982163: status=in_progress, conclusion=None
+  Found run 25884982163: status=in_progress, conclusion=None
+  Found run 25884982163: status=in_progress, conclusion=None
+  Found run 25884982163: status=in_progress, conclusion=None
+  Found run 25884982163: status=in_progress, conclusion=None
+  Found run 25884982163: status=completed, conclusion=success
+
+=== Run 25884982163 concluded: success ===
+
+Job: ingest  conclusion=success
+     1 Set up job                                         success
+     2 Checkout                                           success
+     3 Set up Python                                      success
+     4 Install dependencies                               success
+     5 Run ingestion                                      success
+     6 Commit and push with rebase-retry                  success
+    11 Post Set up Python                                 success
+    12 Post Checkout                                      success
+    13 Complete job                                       success
+
+Logs saved to logs/sad-ingest-fresh-run-25884982163.zip
+
+=== ingest/5_Run ingestion.txt (last 80 lines) ===
+﻿2026-05-14T20:51:18.8497653Z ##[group]Run mkdir -p runs
+2026-05-14T20:51:18.8497977Z [36;1mmkdir -p runs[0m
+2026-05-14T20:51:18.8498347Z [36;1mpython scripts/ingest.py 2>&1 | tee runs/last-ingest-output.log[0m
+2026-05-14T20:51:18.8521525Z shell: /usr/bin/bash -e {0}
+2026-05-14T20:51:18.8521781Z env:
+2026-05-14T20:51:18.8522056Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.13/x64
+2026-05-14T20:51:18.8522483Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.13/x64/lib/pkgconfig
+2026-05-14T20:51:18.8522889Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+2026-05-14T20:51:18.8523261Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+2026-05-14T20:51:18.8523820Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+2026-05-14T20:51:18.8524189Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.13/x64/lib
+2026-05-14T20:51:18.8525337Z   ANTHROPIC_API_KEY: ***
+2026-05-14T20:51:18.8525572Z ##[endgroup]
+2026-05-14T20:55:51.9966316Z 
+2026-05-14T20:55:51.9967099Z === Reuters World ===
+2026-05-14T20:55:51.9967950Z WARN no entries from Reuters World
+2026-05-14T20:55:51.9968422Z 
+2026-05-14T20:55:51.9968698Z === Reuters China ===
+2026-05-14T20:55:51.9969165Z WARN no entries from Reuters China
+2026-05-14T20:55:51.9969574Z 
+2026-05-14T20:55:51.9969833Z === Al Jazeera ===
+2026-05-14T20:55:51.9970687Z OK   filed: inbox/INGEST-2026-05-14-Al_Jazeera-Cautious_optimism_in_Lebanon_as_direct_talks_with_Israel_pro.md
+2026-05-14T20:55:51.9971998Z OK   filed: inbox/INGEST-2026-05-14-Al_Jazeera-Irans_FM_urges_BRICS_states_to_condemn_US-Israeli_aggression.md
+2026-05-14T20:55:51.9973205Z OK   filed: inbox/INGEST-2026-05-14-Al_Jazeera-Israels_Ben_Gvir_storms_Al-Aqsa_during_Jerusalem_Day_march.md
+2026-05-14T20:55:51.9974010Z 
+2026-05-14T20:55:51.9974286Z === Stimson Center ===
+2026-05-14T20:55:51.9975288Z OK   filed: inbox/INGEST-2026-05-14-Stimson_Center-The_Trump-Xi_Summit_Could_Be_a_Positive_Paradigm_Shift.md
+2026-05-14T20:55:51.9976561Z OK   filed: inbox/INGEST-2026-05-14-Stimson_Center-TrumpXi_Summit_Expert_Perspectives_on_the_Stakes_and_Strateg.md
+2026-05-14T20:55:51.9977728Z OK   filed: inbox/INGEST-2026-05-14-Stimson_Center-Hossein_Kanani_Moghaddam_Irans_Outlook.md
+2026-05-14T20:55:51.9978410Z 
+2026-05-14T20:55:51.9978674Z === CSIS Analysis ===
+2026-05-14T20:55:51.9979138Z WARN no entries from CSIS Analysis
+2026-05-14T20:55:51.9979539Z 
+2026-05-14T20:55:51.9979841Z === South China Morning Post ===
+2026-05-14T20:55:51.9980786Z OK   filed: inbox/INGEST-2026-05-14-South_China_Morning_Post-Trump_says_Xi_offered_help_on_Iran_as_China_seeks_to_keep_Ho.md
+2026-05-14T20:55:51.9982139Z OK   filed: inbox/INGEST-2026-05-14-South_China_Morning_Post-Xi_and_Trump_set_sights_on_stability_for_China_and_the_US__w.md
+2026-05-14T20:55:51.9983485Z OK   filed: inbox/INGEST-2026-05-14-South_China_Morning_Post-Is_China_set_to_benefit_from_new_US_Fed_chair_Kevin_Warshs_p.md
+2026-05-14T20:55:51.9984310Z 
+2026-05-14T20:55:51.9984733Z === Foreign Policy ===
+2026-05-14T20:55:51.9985529Z OK   filed: inbox/INGEST-2026-05-14-Foreign_Policy-Trump_Xi_Prepare_for_High-Stakes_Summit_in_Beijing.md
+2026-05-14T20:55:51.9986565Z OK   filed: inbox/INGEST-2026-05-14-Foreign_Policy-India_Still_Stands_By_BRICS.md
+2026-05-14T20:55:51.9987540Z OK   filed: inbox/INGEST-2026-05-14-Foreign_Policy-Theres_No_Need_to_Fear_Chinas_Economy.md
+2026-05-14T20:55:51.9988196Z 
+2026-05-14T20:55:51.9988452Z === Summary ===
+2026-05-14T20:55:51.9988890Z Files created:           12
+2026-05-14T20:55:51.9989373Z Items processed (API):   15
+2026-05-14T20:55:51.9989844Z Skipped (already seen):  22
+2026-05-14T20:55:51.9990315Z Skipped (not relevant):  3
+2026-05-14T20:55:51.9990770Z Errors:                  0
+2026-05-14T20:55:51.9991229Z Inbox path:              inbox/
+
+=== ingest/6_Commit and push with rebase-retry.txt (last 80 lines) ===
+﻿2026-05-14T20:55:52.0691995Z ##[group]Run set -e
+2026-05-14T20:55:52.0692312Z [36;1mset -e[0m
+2026-05-14T20:55:52.0692508Z [36;1m[0m
+2026-05-14T20:55:52.0692746Z [36;1mgit add inbox/ state/ runs/ 2>/dev/null || true[0m
+2026-05-14T20:55:52.0693039Z [36;1m[0m
+2026-05-14T20:55:52.0693263Z [36;1mif [ -z "$(git status --porcelain)" ]; then[0m
+2026-05-14T20:55:52.0693563Z [36;1m  echo "No changes to commit."[0m
+2026-05-14T20:55:52.0693813Z [36;1m  exit 0[0m
+2026-05-14T20:55:52.0694000Z [36;1mfi[0m
+2026-05-14T20:55:52.0694177Z [36;1m[0m
+2026-05-14T20:55:52.0694789Z [36;1mgit config user.email "41898282+github-actions[bot]@users.noreply.github.com"[0m
+2026-05-14T20:55:52.0695294Z [36;1mgit config user.name  "github-actions[bot]"[0m
+2026-05-14T20:55:52.0695574Z [36;1m[0m
+2026-05-14T20:55:52.0695965Z [36;1mnew_inbox=$(git diff --cached --name-only --diff-filter=A inbox/ 2>/dev/null | wc -l | tr -d ' ')[0m
+2026-05-14T20:55:52.0696459Z [36;1mrun_date=$(date -u +%Y-%m-%d)[0m
+2026-05-14T20:55:52.0696920Z [36;1m[0m
+2026-05-14T20:55:52.0697283Z [36;1mgit commit -m "ingest($run_date): $new_inbox new inbox file(s), run $GITHUB_RUN_ID"[0m
+2026-05-14T20:55:52.0697665Z [36;1m[0m
+2026-05-14T20:55:52.0697930Z [36;1m# Push with rebase-retry on non-fast-forward rejection[0m
+2026-05-14T20:55:52.0698263Z [36;1mfor attempt in 1 2 3 4 5; do[0m
+2026-05-14T20:55:52.0698523Z [36;1m  if git push; then[0m
+2026-05-14T20:55:52.0698799Z [36;1m    echo "Push succeeded on attempt $attempt"[0m
+2026-05-14T20:55:52.0699084Z [36;1m    exit 0[0m
+2026-05-14T20:55:52.0699278Z [36;1m  fi[0m
+2026-05-14T20:55:52.0699568Z [36;1m  echo "Push attempt $attempt rejected, rebasing onto origin/main"[0m
+2026-05-14T20:55:52.0699927Z [36;1m  git fetch origin main[0m
+2026-05-14T20:55:52.0700319Z [36;1m  git rebase origin/main || { echo "Rebase failed"; git rebase --abort || true; exit 1; }[0m
+2026-05-14T20:55:52.0700718Z [36;1mdone[0m
+2026-05-14T20:55:52.0700932Z [36;1mecho "Push failed after 5 attempts"[0m
+2026-05-14T20:55:52.0701199Z [36;1mexit 1[0m
+2026-05-14T20:55:52.0724276Z shell: /usr/bin/bash -e {0}
+2026-05-14T20:55:52.0724640Z env:
+2026-05-14T20:55:52.0724903Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.13/x64
+2026-05-14T20:55:52.0725326Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.13/x64/lib/pkgconfig
+2026-05-14T20:55:52.0725731Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+2026-05-14T20:55:52.0726096Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+2026-05-14T20:55:52.0726481Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+2026-05-14T20:55:52.0726848Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.13/x64/lib
+2026-05-14T20:55:52.0727158Z ##[endgroup]
+2026-05-14T20:55:52.1004069Z [main 9d5d8df] ingest(2026-05-14): 12 new inbox file(s), run 25884982163
+2026-05-14T20:55:52.1005389Z  14 files changed, 471 insertions(+), 15 deletions(-)
+2026-05-14T20:55:52.1006745Z  create mode 100644 inbox/INGEST-2026-05-14-Al_Jazeera-Cautious_optimism_in_Lebanon_as_direct_talks_with_Israel_pro.md
+2026-05-14T20:55:52.1010825Z  create mode 100644 inbox/INGEST-2026-05-14-Al_Jazeera-Irans_FM_urges_BRICS_states_to_condemn_US-Israeli_aggression.md
+2026-05-14T20:55:52.1012589Z  create mode 100644 inbox/INGEST-2026-05-14-Al_Jazeera-Israels_Ben_Gvir_storms_Al-Aqsa_during_Jerusalem_Day_march.md
+2026-05-14T20:55:52.1013918Z  create mode 100644 inbox/INGEST-2026-05-14-Foreign_Policy-India_Still_Stands_By_BRICS.md
+2026-05-14T20:55:52.1015905Z  create mode 100644 inbox/INGEST-2026-05-14-Foreign_Policy-Theres_No_Need_to_Fear_Chinas_Economy.md
+2026-05-14T20:55:52.1017247Z  create mode 100644 inbox/INGEST-2026-05-14-Foreign_Policy-Trump_Xi_Prepare_for_High-Stakes_Summit_in_Beijing.md
+2026-05-14T20:55:52.1018750Z  create mode 100644 inbox/INGEST-2026-05-14-South_China_Morning_Post-Is_China_set_to_benefit_from_new_US_Fed_chair_Kevin_Warshs_p.md
+2026-05-14T20:55:52.1020367Z  create mode 100644 inbox/INGEST-2026-05-14-South_China_Morning_Post-Trump_says_Xi_offered_help_on_Iran_as_China_seeks_to_keep_Ho.md
+2026-05-14T20:55:52.1022306Z  create mode 100644 inbox/INGEST-2026-05-14-South_China_Morning_Post-Xi_and_Trump_set_sights_on_stability_for_China_and_the_US__w.md
+2026-05-14T20:55:52.1023721Z  create mode 100644 inbox/INGEST-2026-05-14-Stimson_Center-Hossein_Kanani_Moghaddam_Irans_Outlook.md
+2026-05-14T20:55:52.1025317Z  create mode 100644 inbox/INGEST-2026-05-14-Stimson_Center-The_Trump-Xi_Summit_Could_Be_a_Positive_Paradigm_Shift.md
+2026-05-14T20:55:52.1026805Z  create mode 100644 inbox/INGEST-2026-05-14-Stimson_Center-TrumpXi_Summit_Expert_Perspectives_on_the_Stakes_and_Strateg.md
+2026-05-14T20:55:52.9905696Z To https://github.com/Mikixxl/sad-ingest
+2026-05-14T20:55:52.9913941Z    7672a78..9d5d8df  main -> main
+2026-05-14T20:55:53.0013446Z Push succeeded on attempt 1
