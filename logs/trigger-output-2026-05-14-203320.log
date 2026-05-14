@@ -1,0 +1,16 @@
+Read KEYS-REPOSITORY: 40648 chars
+PAT prefix: ghp_djW
+Actions permissions: HTTP 200 body={"enabled":true,"allowed_actions":"all","sha_pinning_required":false}
+Workflows list: HTTP 200
+  - SAD Source Ingestion  state=active  path=.github/workflows/sad-ingest.yml  id=276932249
+
+Recent runs: HTTP 200
+  - run 25884037051  event=push  status=in_progress  conclusion=None  created=2026-05-14T20:31:51Z  name=SAD Source Ingestion
+  - run 25883737952  event=workflow_dispatch  status=completed  conclusion=failure  created=2026-05-14T20:26:00Z  name=SAD Source Ingestion
+  - run 25883508271  event=push  status=completed  conclusion=cancelled  created=2026-05-14T20:21:30Z  name=SAD Source Ingestion
+  - run 25883275724  event=push  status=completed  conclusion=cancelled  created=2026-05-14T20:16:49Z  name=SAD Source Ingestion
+  - run 25882839960  event=workflow_dispatch  status=completed  conclusion=cancelled  created=2026-05-14T20:08:05Z  name=SAD Source Ingestion
+  - run 25882590243  event=workflow_dispatch  status=completed  conclusion=cancelled  created=2026-05-14T20:02:55Z  name=SAD Source Ingestion
+
+Dispatch status: HTTP 204
+sad-ingest workflow dispatched.
