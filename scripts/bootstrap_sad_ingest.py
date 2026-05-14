@@ -121,8 +121,14 @@ def trigger_workflow(session: requests.Session, repo: str, workflow_file: str) -
     print(f"  OK  workflow dispatched: HTTP {r.status_code}")
 
 
+def list_secrets(session: requests.Session, repo: str) -> list:
+    r = session.get(f"{GH_API}/repos/{repo}/actions/secrets")
+    r.raise_for_status()
+    return r.json().get("secrets", [])
+
+
 def main():
-    print("=== sad-ingest bootstrap ===\n")
+    print("=== sad-ingest bootstrap (v2 with diagnostics) ===\n")
 
     print("Step 1: Read KEYS-REPOSITORY from Drive")
     docs_service = load_drive()
@@ -132,21 +138,44 @@ def main():
     print("\nStep 2: Extract credentials")
     pat = extract_pat(text)
     anthropic_key = extract_anthropic_key(text)
-    sa_json = os.environ["GOOGLE_SA_JSON"]
-    print(f"  OK  PAT: {pat[:7]}...{pat[-4:]}")
-    print(f"  OK  ANTHROPIC: {anthropic_key[:15]}...{anthropic_key[-4:]}")
-    print(f"  OK  SA_JSON: {len(sa_json)} chars")
+    sa_json_raw = os.environ.get("GOOGLE_SA_JSON", "")
+    sa_json = sa_json_raw  # keep as-is, do not strip
+    print(f"  OK  PAT: {pat[:7]}...{pat[-4:]} ({len(pat)} chars)")
+    print(f"  OK  ANTHROPIC: {anthropic_key[:15]}...{anthropic_key[-4:]} ({len(anthropic_key)} chars)")
+    print(f"  SA_JSON env: raw_len={len(sa_json_raw)}, starts={sa_json_raw[:30]!r}, ends={sa_json_raw[-30:]!r}")
+
+    # Sanity: verify it parses as JSON
+    try:
+        parsed = json.loads(sa_json)
+        print(f"  OK  SA_JSON parses: client_email={parsed.get('client_email','MISSING')}, project_id={parsed.get('project_id','MISSING')}")
+    except json.JSONDecodeError as e:
+        sys.exit(f"  FAIL  SA_JSON does not parse: {e}")
 
     print(f"\nStep 3: Fetch sad-ingest repo public key")
     session = gh_session(pat)
     pubkey = get_public_key(session, TARGET_REPO)
-    print(f"  OK  key_id: {pubkey['key_id']}")
+    print(f"  OK  key_id: {pubkey['key_id']}, key starts: {pubkey['key'][:20]}...")
 
-    print(f"\nStep 4: Set secrets on {TARGET_REPO}")
+    print(f"\nStep 4: List EXISTING secrets on {TARGET_REPO} (before changes)")
+    existing = list_secrets(session, TARGET_REPO)
+    if existing:
+        for s in existing:
+            print(f"  - {s['name']} (updated_at={s.get('updated_at','?')})")
+    else:
+        print("  (none)")
+
+    print(f"\nStep 5: Set ANTHROPIC_API_KEY on {TARGET_REPO}")
     set_secret(session, TARGET_REPO, "ANTHROPIC_API_KEY", anthropic_key, pubkey)
+
+    print(f"\nStep 6: Set GOOGLE_SA_JSON on {TARGET_REPO} (length={len(sa_json)})")
     set_secret(session, TARGET_REPO, "GOOGLE_SA_JSON", sa_json, pubkey)
 
-    print(f"\nStep 5: Trigger first sad-ingest workflow run")
+    print(f"\nStep 7: List secrets again to verify both are set")
+    after = list_secrets(session, TARGET_REPO)
+    for s in after:
+        print(f"  - {s['name']} (updated_at={s.get('updated_at','?')})")
+
+    print(f"\nStep 8: Trigger first sad-ingest workflow run")
     trigger_workflow(session, TARGET_REPO, "sad-ingest.yml")
 
     print("\n=== bootstrap complete ===")
