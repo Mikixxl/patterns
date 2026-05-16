@@ -75,3 +75,33 @@ Index Update \- 13 May 2026
 PATTERNS-INFRA now holds 6 patterns (5, 30, 31, 33, 35, 36). Total library count: 36 patterns indexed.
 
 Note: GitHub mirror at github.com/Mikixxl/patterns is one commit behind Drive as of this entry. Pattern 36 lives only in the Drive canonical until next manual sync.
+
+\---
+
+\#\# Index Update \- 14 May 2026
+
+Pattern 36 added to PATTERNS-STRATEGIC: Consensus-Convergence Inversion Check. Codified after Trump-Xi Beijing summit source-bundle work demonstrated the failure mode in real time. See PATTERNS-STRATEGIC for full content.
+
+Updated pattern lookup table entry:
+
+| \# | Title | Lives in |  
+|---|-------|----------|  
+| 36 | Consensus-Convergence Inversion Check | PATTERNS-STRATEGIC |
+
+Total patterns indexed as of 14 May 2026: 36\.
+
+\---
+
+\#\# Index Update \- 15 May 2026
+
+Pattern 37 added to PATTERNS-STRATEGIC: Corrective Discipline \- Strategy Critic, Not Stenographer. Codified after the 15 May 2026 corpus synthesis session (twelve 14 May INGEST documents plus four 15 May manual ingests covering Seaman, Baunov-Chadayev, Pinto-Gindin, and the German Iran-China oil paper verification update). The synthesis drafted observations on current strategy directions in descriptive framing rather than corrective framing. Michael Herzog corrected: "Our job is to correct wrong strategies or propose better ones." The pattern locks in the discipline before the active Hegemony Series drafting window (Doc IIIb post-summit, Doc IV pre-draft pickup, Doc V synthesis note).
+
+Updated pattern lookup table entry:
+
+| \# | Title | Lives in |  
+|---|-------|----------|  
+| 37 | Corrective Discipline \- Strategy Critic, Not Stenographer | PATTERNS-STRATEGIC |
+
+Total patterns indexed as of 15 May 2026: 37\.
+
+Relationship to existing patterns: Pattern 37 is the sister of Pattern 36\. Pattern 36 prevents anchoring to consensus surface-reading; Pattern 37 prevents anchoring to current-strategy direction. Both are anti-absorption disciplines applied at different stages of analysis. Pattern 37 should be triggered on every paragraph in SAD output that touches a current or proposed strategy by an allied or partner government. Application is a four-question test: is the strategy right or wrong, what is the error, what is the better alternative, and who is the audience that can act on the correction.
