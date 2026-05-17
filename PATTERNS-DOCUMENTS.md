@@ -226,7 +226,15 @@ The build\_part\_a.py template in any /home/user/doc\[N\]/ workbench should incl
 6\. No em dashes  
 7\. Figures embedded at proper width (6.5 inches for full-width)  
 8\. Footer page numbers working (PAGE/NUMPAGES fields)  
+\--- SOURCE-FIDELITY RULE (LOCKED 17 May 2026, after a dropped-table failure) \---  
+NEVER reconstruct the Word document by retyping or transcribing the Google Doc's text into a docx-js or python-docx script. GET\_DOCUMENT\_PLAINTEXT and any text-extraction path silently discard every non-text element: tables, embedded charts and images placed in the body, footnotes, equations, drawing objects. A text-based rebuild looks complete and validates clean while having lost structural content. This rule was extracted after Doc V (European Fracture) was rebuilt from the Doc's text and a table was deleted in the process; the validation passed and the loss was not caught, which is itself part of the failure.  
+Binding method for any SAD report whose master is a native Google Doc:  
+1\. The Word file is produced by EXPORTING the Google Doc, not by rebuilding it. Use GOOGLEDOCS\_EXPORT\_DOCUMENT\_AS\_PDF only for PDF; for the .docx use GOOGLEDRIVE\_EXPORT\_GOOGLE\_WORKSPACE\_FILE / GOOGLEDRIVE\_DOWNLOAD\_FILE with mime\_type application/vnd.openxmlformats-officedocument.wordprocessingml.document on the Doc's file ID. That preserves tables, images and footnotes.  
+2\. Pattern 18 styling that the export does not carry (cover section, gold H1 rules, header/footer, TOC field, navy palette) is then applied by UNPACKING the exported .docx and editing its XML per the docx skill's "Editing Existing Documents" path \- never by regenerating the body from text.  
+3\. If the master is not a Google Doc but assembled in-script from the start, the docx-js build path is still valid; the prohibition is specifically on round-tripping an existing Doc through plain text.  
+\--- PRE-DELIVERY STRUCTURAL-PARITY CHECK (added 17 May 2026\) \---  
+Before delivering any SAD .docx whose source is a Google Doc, diff structure not just text: count tables, body images, and footnotes in the source Doc (GET\_DOCUMENT\_BY\_ID structural JSON, not plaintext) and confirm the same counts in the built .docx. A clean validate.py and a correct word count are NOT sufficient and must never again be reported as "passed every check" when this parity check has not been run. State the table/image/footnote counts explicitly in the delivery message.  
 \--- HISTORY \---  
-Doc I had H1-H3 styling and Blocksatz but no TOC. Doc II had inconsistent heading formatting and no Blocksatz, but introduced the gold-line aesthetic which Michael liked. Pattern 18 consolidates the best of both.  
+Doc I had H1-H3 styling and Blocksatz but no TOC. Doc II had inconsistent heading formatting and no Blocksatz, but introduced the gold-line aesthetic which Michael liked. Pattern 18 consolidates the best of both. 17 May 2026: source-fidelity rule and structural-parity check added after the Doc V build dropped a table during a text-based reconstruction and the loss was not detected before delivery.  
 \========================================  
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_  
